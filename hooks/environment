@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+credentials_from_file(){
+    CREDENTIALS_FILE="${BUILDKITE_PLUGIN_ANYSCALE_CREDENTIALS_FILE:-}"
+
+    test -r "$CREDENTIALS_FILE" || fail "Could not read credentials file: $CREDENTIALS_FILE"
+    ANYSCALE_CLI_TOKEN="$(cat "$CREDENTIALS_FILE")"
+    export ANYSCALE_CLI_TOKEN
+}
+
+if [[ -n "${BUILDKITE_PLUGIN_ANYSCALE_CREDENTIALS_HOST:-}" ]];then
+    ANYSCALE_HOST="$BUILDKITE_PLUGIN_ANYSCALE_CREDENTIALS_HOST"
+    export ANYSCALE_HOST
+    echo "~~~ :anyscale: using $ANYSCALE_HOST"
+fi
+
+credentials_from_file
