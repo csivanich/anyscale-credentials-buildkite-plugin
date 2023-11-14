@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+fail(){
+    echo "$@"
+    exit 1
+}
+
 credentials_from_file(){
     CREDENTIALS_FILE="${BUILDKITE_PLUGIN_ANYSCALE_CREDENTIALS_FILE:-}"
 
