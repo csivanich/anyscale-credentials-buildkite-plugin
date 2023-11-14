@@ -1,0 +1,5 @@
+name: Anyscale Credentials
+description: Loads Anyscale Credentials in a pipeline
+author: https://github.com/csivanich/anyscale-credentials-buildkite-plugin
+requirements: ["docker"]
+configuration: {}
